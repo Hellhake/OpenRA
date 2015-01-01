@@ -324,8 +324,8 @@ namespace OpenRA.Widgets
 			return EventBounds.Contains(pos) ? GetCursor(pos) : null;
 		}
 
-		public virtual void MouseEntered() {}
-		public virtual void MouseExited() {}
+		public virtual void MouseEntered() { }
+		public virtual void MouseExited() { }
 		public virtual bool HandleMouseInput(MouseInput mi) { return false; }
 
 		public bool HandleMouseInputOuter(MouseInput mi)
@@ -335,6 +335,7 @@ namespace OpenRA.Widgets
 				return false;
 
 			var oldMouseOver = Ui.MouseOverWidget;
+
 			// Send the event to the deepest children first and bubble up if unhandled
 			foreach (var child in Children.OfType<Widget>().Reverse())
 				if (child.HandleMouseInputOuter(mi))
@@ -385,7 +386,7 @@ namespace OpenRA.Widgets
 			return handled;
 		}
 
-		public virtual void Draw() {}
+		public virtual void Draw() { }
 
 		public virtual void DrawOuter()
 		{
@@ -397,7 +398,7 @@ namespace OpenRA.Widgets
 			}
 		}
 
-		public virtual void Tick() {}
+		public virtual void Tick() { }
 
 		public virtual void TickOuter()
 		{
@@ -427,7 +428,7 @@ namespace OpenRA.Widgets
 		public virtual void RemoveChildren()
 		{
 			while (Children.Count > 0)
-				RemoveChild(Children[Children.Count-1]);
+				RemoveChild(Children[Children.Count - 1]);
 		}
 
 		public virtual void Removed()
@@ -452,12 +453,13 @@ namespace OpenRA.Widgets
 				if (w != null)
 					return w;
 			}
+
 			return null;
 		}
 
 		public T GetOrNull<T>(string id) where T : Widget
 		{
-			return (T) GetOrNull(id);
+			return (T)GetOrNull(id);
 		}
 
 		public T Get<T>(string id) where T : Widget

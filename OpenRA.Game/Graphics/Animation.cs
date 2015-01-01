@@ -43,7 +43,7 @@ namespace OpenRA.Graphics
 		{
 			this.sequenceProvider = sequenceProvider;
 			this.name = name.ToLowerInvariant();
-			this.tickFunc = () => {};
+			this.tickFunc = () => { };
 			this.facingFunc = facingFunc;
 		}
 

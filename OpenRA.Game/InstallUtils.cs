@@ -26,8 +26,8 @@ namespace OpenRA
 		public readonly string[] TestFiles = {};
 		public readonly string[] DiskTestFiles = {};
 		public readonly string PackageToExtractFromCD = null;
-		public readonly string[] ExtractFilesFromCD = {};
-		public readonly string[] CopyFilesFromCD = {};
+		public readonly string[] ExtractFilesFromCD = { };
+		public readonly string[] CopyFilesFromCD = { };
 
 		public readonly string PackageMirrorList = null;
 

@@ -132,6 +132,7 @@ namespace OpenRA
 
 			// Milliseconds to wait on one loop when nothing to do
 			var emptyDelay = 50;
+
 			// Keep the thread alive for at least 5 seconds after the last minimap generation
 			var maxKeepAlive = 5000 / emptyDelay;
 			var keepAlive = maxKeepAlive;
@@ -151,6 +152,7 @@ namespace OpenRA
 						break;
 					}
 				}
+
 				if (todo.Count == 0)
 				{
 					Thread.Sleep(emptyDelay);

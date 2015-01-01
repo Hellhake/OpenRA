@@ -113,6 +113,7 @@ namespace OpenRA
 
 	public class Map
 	{
+		public const int MaxTilesInCircleRange = 50;
 		[FieldLoader.Ignore] public IFolder Container;
 		public string Path { get; private set; }
 
@@ -207,7 +208,7 @@ namespace OpenRA
 			var tileShape = Game.modData.Manifest.TileShape;
 			var tileRef = new TerrainTile(tileset.Templates.First().Key, (byte)0);
 
-			var makeMapTiles =  Exts.Lazy(() =>
+			var makeMapTiles = Exts.Lazy(() =>
 			{
 				var ret = new CellLayer<TerrainTile>(tileShape, size);
 				ret.Clear(tileRef);
@@ -421,12 +422,10 @@ namespace OpenRA
 			root.Add(new MiniYamlNode("Options", FieldSaver.SaveDifferences(Options, new MapOptions())));
 
 			root.Add(new MiniYamlNode("Players", null,
-				Players.Select(p => new MiniYamlNode("PlayerReference@{0}".F(p.Key), FieldSaver.SaveDifferences(p.Value, new PlayerReference()))).ToList())
-			);
+				Players.Select(p => new MiniYamlNode("PlayerReference@{0}".F(p.Key), FieldSaver.SaveDifferences(p.Value, new PlayerReference()))).ToList()));
 
 			root.Add(new MiniYamlNode("Actors", null,
-				Actors.Value.Select(x => new MiniYamlNode(x.Key, x.Value.Save())).ToList())
-			);
+				Actors.Value.Select(x => new MiniYamlNode(x.Key, x.Value.Save())).ToList()));
 
 			root.Add(new MiniYamlNode("Smudges", MiniYaml.FromList<SmudgeReference>(Smudges.Value)));
 			root.Add(new MiniYamlNode("Rules", null, RuleDefinitions));
@@ -721,7 +720,6 @@ namespace OpenRA
 		string ComputeHash()
 		{
 			// UID is calculated by taking an SHA1 of the yaml and binary data
-
 			using (var ms = new MemoryStream())
 			{
 				// Read the relevant data into the buffer
@@ -837,7 +835,7 @@ namespace OpenRA
 			var edge = rand.Next(2) == 0;
 
 			var x = isX ? rand.Next(Bounds.Left, Bounds.Right) : (edge ? Bounds.Left : Bounds.Right);
-			var y = !isX ? rand.Next(Bounds.Top, Bounds.Bottom) :  (edge ? Bounds.Top : Bounds.Bottom);
+			var y = !isX ? rand.Next(Bounds.Top, Bounds.Bottom) : (edge ? Bounds.Top : Bounds.Bottom);
 
 			return MapToCell(TileShape, new CPos(x, y));
 		}
@@ -851,14 +849,13 @@ namespace OpenRA
 			return new WRange(Math.Min(x, y) * dir.Length);
 		}
 
-		public const int MaxTilesInCircleRange = 50;
 		static CVec[][] TilesByDistance = InitTilesByDistance(MaxTilesInCircleRange);
 
 		static CVec[][] InitTilesByDistance(int max)
 		{
 			var ts = new List<CVec>[max + 1];
 			for (var i = 0; i < max + 1; i++)
-				ts [i] = new List<CVec>();
+				ts[i] = new List<CVec>();
 
 			for (var j = -max; j <= max; j++)
 				for (var i = -max; i <= max; i++)
