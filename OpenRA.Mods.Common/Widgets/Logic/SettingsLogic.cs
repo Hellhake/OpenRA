@@ -350,18 +350,14 @@ namespace OpenRA.Mods.Common.Widgets.Logic
 					{ "ToSelectionKey", "Jump to selection" },
 					{ "SelectAllUnitsKey", "Select all units on screen" },
 					{ "SelectUnitsByTypeKey", "Select units by type" },
-
 					{ "PlaceBeaconKey", "Place beacon" },
-
 					{ "PauseKey", "Pause / Unpause" },
 					{ "SellKey", "Sell mode" },
 					{ "PowerDownKey", "Power-down mode" },
 					{ "RepairKey", "Repair mode" },
-
 					{ "NextProductionTabKey", "Next production tab" },
 					{ "PreviousProductionTabKey", "Previous production tab" },
 					{ "CycleProductionBuildingsKey", "Cycle production facilities" },
-
 					{ "ToggleStatusBarsKey", "Toggle status bars" },
 					{ "TogglePixelDoubleKey", "Toggle pixel doubling" },
 				};
