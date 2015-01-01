@@ -22,6 +22,7 @@ namespace OpenRA.Mods.RA.Activities
 
 	public class Teleport : Activity
 	{
+		const int maxCellSearchRange = Map.MaxTilesInCircleRange;
 		Actor teleporter;
 		CPos destination;
 		int? maximumDistance;
@@ -29,7 +30,6 @@ namespace OpenRA.Mods.RA.Activities
 		bool screenFlash;
 		string sound;
 
-		const int maxCellSearchRange = Map.MaxTilesInCircleRange;
 
 		public Teleport(Actor teleporter, CPos destination, int? maximumDistance, bool killCargo, bool screenFlash, string sound)
 		{
@@ -74,6 +74,7 @@ namespace OpenRA.Mods.RA.Activities
 					while (!cargo.IsEmpty(self))
 					{
 						var a = cargo.Unload(self);
+
 						// Kill all the units that are unloaded into the void
 						// Kill() handles kill and death statistics
 						a.Kill(teleporter);

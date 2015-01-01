@@ -22,7 +22,7 @@ namespace OpenRA.Mods.RA.Widgets.Logic
 {
 	public class ServerBrowserLogic
 	{
-		readonly static Action DoNothing = () => { };
+		static readonly Action DoNothing = () => { };
 
 		GameServer currentServer;
 		ScrollItemWidget serverTemplate;

@@ -329,6 +329,7 @@ namespace OpenRA.Mods.RA
 					foreach (var npe in self.TraitsImplementing<INotifyPassengerEntered>())
 						npe.PassengerEntered(self, c);
 				}
+
 				initialized = true;
 			}
 

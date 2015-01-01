@@ -30,7 +30,7 @@ namespace OpenRA.Mods.RA
 
 		public override void DoImpact(Target target, Actor firedBy, IEnumerable<int> damageModifiers)
 		{
-			var actors = target.Type == TargetType.Actor ? new [] { target.Actor } :
+			var actors = target.Type == TargetType.Actor ? new[] { target.Actor } :
 				firedBy.World.FindActorsInCircle(target.CenterPosition, Range);
 
 			foreach (var a in actors)

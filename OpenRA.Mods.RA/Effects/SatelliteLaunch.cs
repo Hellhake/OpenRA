@@ -30,7 +30,7 @@ namespace OpenRA.Mods.RA.Effects
 			pos = a.CenterPosition;
 		}
 
-		public void Tick( World world )
+		public void Tick(World world)
 		{
 			doors.Tick();
 

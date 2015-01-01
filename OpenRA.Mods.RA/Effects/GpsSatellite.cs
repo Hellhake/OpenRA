@@ -27,7 +27,7 @@ namespace OpenRA.Mods.RA.Effects
 			anim.PlayRepeating("idle");
 		}
 
-		public void Tick( World world )
+		public void Tick(World world)
 		{
 			anim.Tick();
 			pos += new WVec(0, 0, 427);

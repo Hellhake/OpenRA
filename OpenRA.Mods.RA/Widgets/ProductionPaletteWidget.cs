@@ -50,7 +50,7 @@ namespace OpenRA.Mods.RA.Widgets
 		[Translate] public readonly string HoldText = "";
 
 		public int IconCount { get; private set; }
-		public event Action<int, int> OnIconCountChanged = (a, b) => {};
+		public event Action<int, int> OnIconCountChanged = (a, b) => { };
 
 		public ProductionIcon TooltipIcon { get; private set; }
 		public readonly World World;

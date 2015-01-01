@@ -201,6 +201,7 @@ namespace OpenRA.Mods.RA.AI
 					if (warhead != null)
 						sumOfDamage += warhead.Damage;
 				}
+
 				return sumOfDamage;
 			});
 		}
