@@ -102,7 +102,7 @@ namespace OpenRA
 			var unresolved = source.Except(resolved);
 
 			var testResolve = new Func<Type, Type, bool>((a, b) => a == b || a.IsAssignableFrom(b));
-			var more = unresolved.Where(u => u.Dependencies.All( d => resolved.Exists(r => testResolve(d, r.Type)) ));
+			var more = unresolved.Where(u => u.Dependencies.All(d => resolved.Exists(r => testResolve(d, r.Type))));
 
 			// Re-evaluate the vars above until sorted
 			while (more.Any())

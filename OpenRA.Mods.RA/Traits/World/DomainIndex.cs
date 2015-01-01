@@ -13,8 +13,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using OpenRA.Graphics;
-using OpenRA.Traits;
 using OpenRA.Support;
+using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA.Traits
 {

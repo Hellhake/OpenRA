@@ -26,9 +26,6 @@ namespace OpenRA
 
 	public class Player : IScriptBindable, IScriptNotifyBind, ILuaTableBinding, ILuaEqualityBinding, ILuaToStringBinding
 	{
-		public Actor PlayerActor;
-		public WinState WinState = WinState.Undefined;
-
 		public readonly HSLColor Color;
 
 		public readonly string PlayerName;
@@ -39,6 +36,9 @@ namespace OpenRA
 		public readonly bool Playable = true;
 		public readonly int ClientIndex;
 		public readonly PlayerReference PlayerReference;
+
+        public Actor PlayerActor;
+        public WinState WinState = WinState.Undefined;
 		public bool IsBot;
 		public int SpawnPoint;
 		public bool HasObjectives = false;

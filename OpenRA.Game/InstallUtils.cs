@@ -23,8 +23,8 @@ namespace OpenRA
 		public readonly string MenuWidget = null;
 		public readonly string MusicMenuWidget = null;
 		public readonly string BackgroundWidget = null;
-		public readonly string[] TestFiles = {};
-		public readonly string[] DiskTestFiles = {};
+		public readonly string[] TestFiles = { };
+		public readonly string[] DiskTestFiles = { };
 		public readonly string PackageToExtractFromCD = null;
 		public readonly string[] ExtractFilesFromCD = { };
 		public readonly string[] CopyFilesFromCD = { };

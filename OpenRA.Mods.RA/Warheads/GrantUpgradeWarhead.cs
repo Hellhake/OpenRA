@@ -12,9 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Effects;
 using OpenRA.GameRules;
-using OpenRA.Traits;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.RA.Effects;
+using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA
 {

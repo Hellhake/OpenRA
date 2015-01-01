@@ -15,9 +15,9 @@ using OpenRA.Graphics;
 namespace OpenRA.Mods.RA.Effects
 {
 	class GpsSatellite : IEffect
-	{
+    {
+        readonly Animation anim;
 		WPos pos;
-		readonly Animation anim;
 
 		public GpsSatellite(World world, WPos pos)
 		{

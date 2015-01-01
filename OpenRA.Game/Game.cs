@@ -149,6 +149,7 @@ namespace OpenRA
 				orderManager.World = new World(map, orderManager, isShellmap);
 				orderManager.World.Timestep = Timestep;
 			}
+
 			if (worldRenderer != null)
 				worldRenderer.Dispose();
 			worldRenderer = new WorldRenderer(orderManager.World);

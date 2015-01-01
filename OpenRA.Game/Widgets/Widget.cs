@@ -132,7 +132,9 @@ namespace OpenRA.Widgets
 	}
 
 	public abstract class Widget
-	{
+    {
+        public readonly List<Widget> Children = new List<Widget>();
+
 		// Info defined in YAML
 		public string Id = null;
 		public string X = "0";
@@ -150,7 +152,6 @@ namespace OpenRA.Widgets
 		public Widget Parent = null;
 		public Func<bool> IsVisible;
 		public Widget() { IsVisible = () => Visible; }
-		public readonly List<Widget> Children = new List<Widget>();
 
 		public Widget(Widget widget)
 		{

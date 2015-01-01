@@ -12,8 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AI.Fuzzy.Library;
-using OpenRA.Mods.RA.Traits;
 using OpenRA.GameRules;
+using OpenRA.Mods.RA.Traits;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA.AI

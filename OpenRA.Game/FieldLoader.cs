@@ -182,7 +182,6 @@ namespace OpenRA
 						Exts.ParseIntegerInvariant(parts[3]).Clamp(0, 255));
 				return InvalidValueAction(value, fieldType, fieldName);
 			}
-
 			else if (fieldType == typeof(Color[]))
 			{
 				var parts = value.Split(',');
@@ -203,7 +202,6 @@ namespace OpenRA
 
 				return colors;
 			}
-
 			else if (fieldType == typeof(HSLColor))
 			{
 				var parts = value.Split(',');

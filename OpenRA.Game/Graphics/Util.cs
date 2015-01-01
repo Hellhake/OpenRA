@@ -16,7 +16,9 @@ using System.Runtime.InteropServices;
 namespace OpenRA.Graphics
 {
 	public static class Util
-	{
+    {
+        // yes, our channel order is nuts.
+        static readonly int[] channelMasks = { 2, 1, 0, 3 };
 		static float[] channelSelect = { 0.75f, 0.25f, -0.25f, -0.75f };
 
 		public static void FastCreateQuad(Vertex[] vertices, float2 o, Sprite r, int palette, int nv, float2 size)
@@ -37,9 +39,7 @@ namespace OpenRA.Graphics
 			vertices[nv + 2] = new Vertex(c, r.right, r.bottom, attribP, attribC);
 			vertices[nv + 3] = new Vertex(d, r.left, r.bottom, attribP, attribC);
 		}
-
-		static readonly int[] channelMasks = { 2, 1, 0, 3 };	// yes, our channel order is nuts.
-
+        
 		public static void FastCopyIntoChannel(Sprite dest, byte[] src) { FastCopyIntoChannel(dest, 0, src); }
 		public static void FastCopyIntoChannel(Sprite dest, int channelOffset, byte[] src)
 		{

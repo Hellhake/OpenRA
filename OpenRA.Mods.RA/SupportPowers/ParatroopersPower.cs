@@ -20,7 +20,20 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.RA.Traits
 {
 	public class ParatroopersPowerInfo : SupportPowerInfo
-	{
+    {
+        [Desc("Risks stuck units when they don't have the Paratrooper trait.")]
+        public readonly bool AllowImpassableCells = false;
+
+        [ActorReference]
+        [Desc("Actor to spawn when the paradrop starts.")]
+        public readonly string CameraActor = null;
+
+        [Desc("Amount of time (in ticks) to keep the camera alive while the passengers drop.")]
+        public readonly int CameraRemoveDelay = 85;
+
+        [Desc("Weapon range offset to apply during the beacon clock calculation.")]
+        public readonly WRange BeaconDistanceOffset = WRange.FromCells(4);
+
 		[ActorReference]
 		public readonly string UnitType = "badr";
 		public readonly int SquadSize = 1;
@@ -35,19 +48,6 @@ namespace OpenRA.Mods.RA.Traits
 		[ActorReference]
 		[Desc("Troops to be delivered.  They will be distributed between the planes if SquadSize > 1.")]
 		public string[] DropItems = { };
-
-		[Desc("Risks stuck units when they don't have the Paratrooper trait.")]
-		public readonly bool AllowImpassableCells = false;
-
-		[ActorReference]
-		[Desc("Actor to spawn when the paradrop starts.")]
-		public readonly string CameraActor = null;
-
-		[Desc("Amount of time (in ticks) to keep the camera alive while the passengers drop.")]
-		public readonly int CameraRemoveDelay = 85;
-
-		[Desc("Weapon range offset to apply during the beacon clock calculation.")]
-		public readonly WRange BeaconDistanceOffset = WRange.FromCells(4);
 
 		public override object Create(ActorInitializer init) { return new ParatroopersPower(init.self, this); }
 	}

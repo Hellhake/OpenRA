@@ -23,7 +23,6 @@ namespace OpenRA.Mods.RA.Activities
 		bool isDocking;
 		int chosenTicks;
 
-
 		public override Activity Tick(Actor self)
 		{
 			if (NextActivity != null)

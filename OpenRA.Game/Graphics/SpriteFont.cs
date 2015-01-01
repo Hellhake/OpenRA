@@ -135,8 +135,7 @@ namespace OpenRA.Graphics
 						p += bitmap.Pitch;
 					}
 				}
-
-
+            
 			s.sheet.CommitData();
 
 			return g;

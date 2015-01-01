@@ -75,8 +75,7 @@ namespace OpenRA.Mods.RA.Traits
 				  .Reverse();
 				var pb = FindBidiPath(
 					fromPoint,
-					fromPointReverse
-				);
+					fromPointReverse);
 
 				CheckSanePath2(pb, from, target);
 

@@ -15,10 +15,10 @@ using OpenRA.Graphics;
 namespace OpenRA.Mods.RA.Effects
 {
 	class SatelliteLaunch : IEffect
-	{
+    {
+        readonly Animation doors;
+        readonly WPos pos;
 		int frame = 0;
-		readonly Animation doors;
-		readonly WPos pos;
 
 		public SatelliteLaunch(Actor a)
 		{

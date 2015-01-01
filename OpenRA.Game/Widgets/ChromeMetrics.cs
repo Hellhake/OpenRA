@@ -41,6 +41,7 @@ namespace OpenRA.Widgets
 				result = default(T);
 				return false;
 			}
+
 			result = FieldLoader.GetValue<T>(key, s);
 			return true;
 		}

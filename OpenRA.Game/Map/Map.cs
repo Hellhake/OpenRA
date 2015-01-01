@@ -113,7 +113,12 @@ namespace OpenRA
 
 	public class Map
 	{
-		public const int MaxTilesInCircleRange = 50;
+        public const int MaxTilesInCircleRange = 50;
+        public readonly TileShape TileShape;
+        [FieldLoader.Ignore]
+        public readonly WVec[] SubCellOffsets;
+        public readonly SubCell DefaultSubCell;
+        public readonly SubCell LastSubCell;
 		[FieldLoader.Ignore] public IFolder Container;
 		public string Path { get; private set; }
 
@@ -131,12 +136,6 @@ namespace OpenRA
 		public bool AllowStartUnitConfig = true;
 		public Bitmap CustomPreview;
 		public bool InvalidCustomRules { get; private set; }
-
-		public readonly TileShape TileShape;
-		[FieldLoader.Ignore]
-		public readonly WVec[] SubCellOffsets;
-		public readonly SubCell DefaultSubCell;
-		public readonly SubCell LastSubCell;
 
 		public WVec OffsetOfSubCell(SubCell subCell) { return SubCellOffsets[(int)subCell]; }
 
@@ -215,7 +214,7 @@ namespace OpenRA
 				return ret;
 			});
 
-			var makeMapHeight =  Exts.Lazy(() =>
+			var makeMapHeight = Exts.Lazy(() =>
 			{
 				var ret = new CellLayer<byte>(tileShape, size);
 				ret.Clear(0);
@@ -622,7 +621,6 @@ namespace OpenRA
 			// (b) Therefore:
 			//  - ax + by adds (a - b) * 512 + 512 to u
 			//  - ax + by adds (a + b) * 512 + 512 to v
-
 			var z = Contains(cell) ? 512 * MapHeight.Value[cell] : 0;
 			return new WPos(512 * (cell.X - cell.Y + 1), 512 * (cell.X + cell.Y + 1), z);
 		}

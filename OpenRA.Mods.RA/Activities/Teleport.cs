@@ -30,7 +30,6 @@ namespace OpenRA.Mods.RA.Activities
 		bool screenFlash;
 		string sound;
 
-
 		public Teleport(Actor teleporter, CPos destination, int? maximumDistance, bool killCargo, bool screenFlash, string sound)
 		{
 			if (maximumDistance > maxCellSearchRange)

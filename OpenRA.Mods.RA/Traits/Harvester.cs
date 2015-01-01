@@ -13,8 +13,8 @@ using System.Drawing;
 using System.Linq;
 using OpenRA.Activities;
 using OpenRA.Mods.Common.Activities;
-using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Orders;
+using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.RA.Activities;
 using OpenRA.Traits;
 
@@ -46,7 +46,8 @@ namespace OpenRA.Mods.RA.Traits
 	public class Harvester : IIssueOrder, IResolveOrder, IPips,
 		IExplodeModifier, IOrderVoice, ISpeedModifier, ISync,
 		INotifyResourceClaimLost, INotifyIdle, INotifyBlockingMove
-	{
+    {
+        readonly HarvesterInfo Info;
 		Dictionary<ResourceTypeInfo, int> contents = new Dictionary<ResourceTypeInfo, int>();
 
 		[Sync] public Actor OwnerLinkedProc = null;
@@ -56,7 +57,6 @@ namespace OpenRA.Mods.RA.Traits
 		public CPos? LastHarvestedCell = null;
 		public CPos? LastOrderLocation = null;
 		[Sync] public int ContentValue { get { return contents.Sum(c => c.Key.ValuePerUnit * c.Value); } }
-		readonly HarvesterInfo Info;
 		bool idleSmart = true;
 
 		public Harvester(Actor self, HarvesterInfo info)

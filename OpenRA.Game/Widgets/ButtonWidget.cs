@@ -14,8 +14,11 @@ using System.Drawing;
 namespace OpenRA.Widgets
 {
 	public class ButtonWidget : Widget
-	{
+    {
+        public readonly string TooltipContainer;
+        public readonly string TooltipTemplate = "BUTTON_TOOLTIP";
 		public Func<ButtonWidget, Hotkey> GetKey = _ => Hotkey.Invalid;
+
 		public Hotkey Key
 		{
 			get { return GetKey(this); }
@@ -44,8 +47,6 @@ namespace OpenRA.Widgets
 		public Action<MouseInput> OnMouseUp = _ => { };
 
 		Lazy<TooltipContainerWidget> tooltipContainer;
-		public readonly string TooltipContainer;
-		public readonly string TooltipTemplate = "BUTTON_TOOLTIP";
 		[Translate] public string TooltipText;
 		public Func<string> GetTooltipText; 
 
